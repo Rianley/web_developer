@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
+<title>Document</title>
+<link rel="stylesheet" href="./css/dialog.css">
+</head>
+<style>
+button{
+	display: block;
+	margin-top: 10px;
+}
+</style>
+<body>
+<button class="icon-ok">icon-ok</button>
+<button class="icon-warning">icon-warning</button>
+<button class="icon-loading">icon-loading</button>
+<button class="icon-bubble">icon-bubble</button>
+<button class="skin-black">黑色文本</button>
+<button class="input-black">黑色input</button>
+<button class="skin-white">白色文本</button>
+<button class="btn-white">白色按钮</button>
+<script src="./js/ykDialog.js"></script>
+<script>
+var ykDialog
+window.onload = function(){
+//确认框
+	document.querySelector('.icon-ok').addEventListener('click', function(){
+	    ykDialog = dialog({
+	        skin: 1,
+	        icon: 'ok',
+	        maskClose: true,
+	        content: '图片上传中',
+	        animate: true
+	    })
+	})
+//警告框
+	document.querySelector('.icon-warning').addEventListener('click', function(){
+	    ykDialog = dialog({
+	        skin: 1,
+	        icon: 'warning',
+	        maskClose: true,
+	        content: '图片上传中',
+	        animate: true
+	    })
+	})
+//加载框
+	document.querySelector('.icon-loading').addEventListener('click', function(){
+	    ykDialog = dialog({
+	        skin: 1,
+	        icon: 'loading',
+	        maskClose: true,
+	        content: '图片上传中',
+	        animate: true
+	    })
+	})
+//气泡
+	document.querySelector('.icon-bubble').addEventListener('click', function(){
+		ykDialog = dialog({
+			width: '90vw',
+			skin: 1,
+			maskClose: true,
+			icon: 'bubble',
+			content: '图片上传中',
+			style: "",
+			animate: true
+		})
+	})
+
+//黑色文本
+	document.querySelector('.skin-black').addEventListener('click', function(){
+		ykDialog = dialog({
+			width: '90vw',
+			skin: 1,
+			title: '天地无极',
+			content: '挑选股票、债券或基金是一个技术活，却不是一门需要精确的科学。这通常意味着凡事并不是多多益善，我们需要放过一些事实和数据。',
+			style: "",
+			maskClose: true,
+			animate: true
+		})
+	})
+
+//黑色input
+	document.querySelector('.input-black').addEventListener('click', function(){
+		ykDialog = dialog({
+    		width: '90vw',
+    		title: "身份验证",
+    		skin: 1,
+    		maskClose: true,
+    		content: "为了您的信息安全，请输入身份证号码进行身份验证",
+    		inputAttr: {
+    			type: "tel",
+    			placeholder: "请输入您的身份证号码",
+    		},
+    		buttons: [
+	    		{
+	    			color: "green",
+	    			text: "取消",
+	    			type: "cancel",
+	    			callback: function(){
+	    				console.log('取消')
+	    			}
+    			},
+	    		{
+	    			color: "red",
+	    			text: "确定",
+	    			type: "confirm",
+	    			callback: function(val){
+	    				console.log('确认')
+	    			}
+	    		}
+    		]
+    	})
+	})
+}
+
+//白色文本
+	document.querySelector('.skin-white').addEventListener('click', function(){
+		ykDialog = dialog({
+			width: '90vw',
+			skin: 2,
+			maskClose: true,
+			title: 'alert("天地无极")',
+			content: '<p>挑选股票、债券或基金是一个技术活，却不是一门需要精确的科学。这通常意味着凡事并不是多多益善，我们需要放过一些事实和数据。</p>',
+			style: '',
+			animate: true
+		})
+	})
+
+//白色按钮
+	document.querySelector('.btn-white').addEventListener('click', function(){
+		ykDialog = dialog({
+			width: '90vw',
+			skin: 2,
+			maskClose: true,
+			title: "确认是否删除?",
+			buttons: [
+				{
+					color: "red",
+					text: "取消",
+					type: "cancel",
+					callback: function(){
+						console.log('取消')
+					}
+				},
+				{
+					color: "blue",
+					text: "确定",
+					type: "confirm",
+					callback: function(){
+						console.log('确认')
+					}
+				}
+			],
+			animate: true
+		})
+		close()
+	})
+
+function close(){
+	var timer = setTimeout(function(){
+		ykDialog.close()
+	}, 2000)
+}
+</script>
+</body>
+</html>

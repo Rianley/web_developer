@@ -1,0 +1,246 @@
+/*
+* @Author: yankang
+* @Date:   2017-03-13 15:47:53
+* @Last Modified by:   yankang
+* @Last Modified time: 2017-04-21 16:27:29
+*/
+
+// 白色皮肤
+.yk2-dialog-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	-webkit-user-select: none;
+	.dialog-window {
+		margin-top: -15vh;
+		padding-bottom: 15px;
+		width: 90%;
+		max-width: 400px;
+		border-radius: .3rem;
+		text-align: center;
+		-webkit-transition: all .3s ease;
+		color: #333;
+		background: #fff;
+	}
+	.dialog-header {
+		padding: 15px 10px 0;
+		text-align: center;
+		font-size: 16px;
+		font-weight: bold;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		.ok {
+			background: url("./images/icon1.png") no-repeat 0 0;
+			background-size: 40px;
+		}
+		.warning {
+			background: url("./images/icon2.png") no-repeat 0 0;
+			background-size: 40px;
+		}
+	}
+	.dialog-content {
+		padding: 15px 15px 0;
+		color: #333;
+		font-size: 14px;
+		line-height: 1.5;
+		text-align: center;
+	}
+	.dialog-icon-wrap{
+		background:0;
+		color: #fff;
+	}
+	.dialog-icon-bubble {
+		text-align: center;
+		padding: 0;
+		line-height: 0;
+		i {
+			width: 25px;
+			height: 25px;
+			margin-left: 8px;
+			display: inline-block;
+			background-color: #fff;
+			border-radius: 100%;
+			animation: anim_bubble 1.4s infinite ease-in-out;
+			animation-fill-mode: both;
+			&:first-child {
+				margin-left: 0;
+				animation-delay: -.32s;
+			}
+			.middle {
+				animation-delay: -.16s;
+			}
+		}
+	}
+	.dialog-icon-loading{
+		box-sizing: border-box;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		border-radius: 12px;
+		background: rgba(0,0,0,.64);
+		padding-top: 15px;
+		span{
+			display: block;
+			&:first-child{
+				width: 60%;
+				height: 60%;
+				margin: 0 auto;
+				background: url('../img/loadingIcon.gif') no-repeat center center/contain;
+			}
+			&:last-child{
+				color: #fff;
+				padding-top: 4px;
+				font-size: 16px;
+			}
+		}
+	}
+	.dialog-icon-ok{
+		box-sizing: border-box;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		border-radius: 12px;
+		background: rgba(0,0,0,.64);
+		padding-top: 15px;
+		span{
+			display: block;
+			&:first-child{
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				&:first-child:after{
+					content: '';
+					display: block;
+					width: 30px;
+					height: 10px;
+					border: 2px solid #fff;
+					border-width: 0 0 2px 2px;
+					transform:rotate(-50deg)
+				}
+			}
+			&:last-child{
+				color: #fff;
+				padding-top: 4px;
+				font-size: 16px;
+			}
+		}
+	}
+	.dialog-icon-warning{
+		box-sizing: border-box;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		border-radius: 12px;
+		background: rgba(0,0,0,.64);
+		padding:15px 0 10px;
+		span{
+			display: block;
+			&:first-child{
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transform:rotate(90deg);
+				&:first-child:before{
+					content: '';
+					display: block;
+					width: 20px;
+					height: 5px;
+					background-color:#fff;
+				}
+				&:first-child:after{
+					content: '';
+					display: block;
+					width: 5px;
+					height: 5px;
+					background-color: #fff;
+					margin-left: 5px;
+				}
+			}
+			&:last-child{
+				color: #fff;
+				letter-spacing: .05em;
+				font-size: 16px;
+			}
+		}
+	}
+	@keyframes anim_bubble{
+		0%, 100%, 80% {
+			        transform: scale(0);
+			-webkit-transform: scale(0);
+		}
+		40% {
+			        transform: scale(1);
+			-webkit-transform: scale(1);
+		}
+	}
+	.dialog-input {
+		-webkit-appearance: none;
+		width: 88%;
+		display: inline-block;
+		height: 30px;
+		line-height: 24px;
+		border: 1px solid #d0d0d0;
+		outline: none;
+		margin: 10px auto 0;
+		background: #fff;
+		color: #666;
+		border-radius: 0;
+		text-indent: 6px;
+		font-size: 14px;
+	}
+	.dialog-footer {
+		display: flex;
+		height: 44px;
+		line-height: 44px;
+		background-color: #f2f2f2;
+		border-top: 1px solid #d0d0d0;
+		border-radius: 0 0 .4rem .4rem;
+		margin-top: 15px;  //每个块顶部15px
+		margin-bottom: -15px;  //按钮底部缝隙消除
+		button {
+			margin-top: 0!important;   //防止被其它样式重置
+			display: block;
+			flex: 1;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			background: transparent;
+			border: none;
+			outline: none;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			text-align: center;
+			&:not(:first-child) {
+				border-left: 1px solid #d0d0d0;
+			}
+		}
+		.green {
+			color: rgba(2, 202, 202, .8);
+		}
+		.red {
+			color: rgba(251, 23, 50, .8);
+		}
+		.blue {
+			color: #1c87ff;
+		}
+	}
+}
